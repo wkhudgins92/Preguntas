@@ -46,4 +46,4 @@ if __name__ == '__main__':
         if abs(square_root(num, tolerance = tol) - math.sqrt(num)) >  tol:
             num_wrong += 1
 
-    print "Square Root approximation got %s%% wrong." % (num_wrong / len(test) * 100)
+    print "Square Root approximation got %s%% wrong." % ((num_wrong * 1.0 / len(test) * 1.0) * 100)
