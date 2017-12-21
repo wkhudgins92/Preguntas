@@ -36,14 +36,15 @@ if __name__ == '__main__':
     large = [random.random() + 10000 for i in range(100)]
 
     # Combine all lists into one list of test values
-    test = common_roots + small + medium + large
+    test = [common_roots, small, medium, large]
+    sizes = ["common roots", "small", "medium", "large"]
 
     # Test performance on all values
-    num_wrong = 0
     tol = 0.00001
     print "Testing on %s numbers with tolerance of %s" % (len(test), tol)
-    for num in test:
-        if abs(square_root(num, tolerance = tol) - math.sqrt(num)) >  tol:
-            num_wrong += 1
-
-    print "Square Root approximation got %s%% wrong." % ((num_wrong * 1.0 / len(test) * 1.0) * 100)
+    for i in range(len(test)):
+        num_wrong = 0
+        for num in test[i]:
+            if abs(square_root(num, tolerance = tol) - math.sqrt(num)) >  tol:
+                num_wrong += 1
+        print "Square Root approximation got %s%% wrong with size %s." % ((num_wrong * 1.0 / len(test[i])) * 100, sizes[i])
