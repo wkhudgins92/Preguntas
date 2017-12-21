@@ -45,6 +45,6 @@ if __name__ == '__main__':
     for i in range(len(test)):
         num_wrong = 0
         for num in test[i]:
-            if abs(square_root(num, tolerance = tol) - math.sqrt(num)) >  tol:
+            if abs(square_root(num, tolerance = tol, max_iterations=1000) - math.sqrt(num)) >  tol:
                 num_wrong += 1
         print "Square Root approximation got %s%% wrong with size %s." % ((num_wrong * 1.0 / len(test[i])) * 100, sizes[i])
